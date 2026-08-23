@@ -2,8 +2,8 @@
 
 ![glimpse](./assets/og-image.svg)
 
-[![CI](https://github.com/dotbrains/glimpse/actions/workflows/ci.yml/badge.svg)](https://github.com/dotbrains/glimpse/actions/workflows/ci.yml)
-[![Release](https://github.com/dotbrains/glimpse/actions/workflows/release.yml/badge.svg)](https://github.com/dotbrains/glimpse/actions/workflows/release.yml)
+[![CI](https://github.com/smeltery/glimpse/actions/workflows/ci.yml/badge.svg)](https://github.com/smeltery/glimpse/actions/workflows/ci.yml)
+[![Release](https://github.com/smeltery/glimpse/actions/workflows/release.yml/badge.svg)](https://github.com/smeltery/glimpse/actions/workflows/release.yml)
 [![License: PolyForm Shield 1.0.0](https://img.shields.io/badge/License-PolyForm%20Shield%201.0.0-blue.svg)](https://polyformproject.org/licenses/shield/1.0.0/)
 
 ![Go](https://img.shields.io/badge/-Go-00ADD8?style=flat-square&logo=go&logoColor=white)
@@ -118,4 +118,4 @@ This triggers the release workflow which:
 1. Runs tests and lint.
 2. Builds via GoReleaser for darwin/linux × amd64/arm64.
 3. Publishes a GitHub release with binaries.
-4. Updates the Homebrew tap at `dotbrains/homebrew-tap`.
+4. Updates the Homebrew tap at `smeltery/homebrew-tap`.

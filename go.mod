@@ -1,4 +1,4 @@
-module github.com/dotbrains/glimpse
+module github.com/smeltery/glimpse
 
 go 1.26.1
 

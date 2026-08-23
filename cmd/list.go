@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/dotbrains/glimpse/internal/instance"
+	"github.com/smeltery/glimpse/internal/instance"
 	"github.com/spf13/cobra"
 )
 

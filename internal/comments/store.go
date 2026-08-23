@@ -11,7 +11,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/dotbrains/glimpse/internal/instance"
+	"github.com/smeltery/glimpse/internal/instance"
 )
 
 // Severity levels for review comments.

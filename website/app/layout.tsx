@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'glimpse — GitHub-style git diff viewer CLI',
     description: 'Browser-based, GitHub-style diff viewer for git changes. View uncommitted changes, branch comparisons, commit ranges, and more with syntax-highlighted split diffs.',
-    url: 'https://glimpse.dotbrains.io',
+    url: 'https://glimpse.smeltery.io',
     siteName: 'glimpse',
     images: [
       {

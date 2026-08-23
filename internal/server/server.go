@@ -10,9 +10,9 @@ import (
 	"os"
 	"strings"
 
-	"github.com/dotbrains/glimpse/internal/comments"
-	"github.com/dotbrains/glimpse/internal/diff"
-	"github.com/dotbrains/glimpse/internal/gh"
+	"github.com/smeltery/glimpse/internal/comments"
+	"github.com/smeltery/glimpse/internal/diff"
+	"github.com/smeltery/glimpse/internal/gh"
 )
 
 // NewGHClient creates a GitHub CLI client (thin wrapper to avoid import cycle).

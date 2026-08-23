@@ -8,8 +8,8 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/dotbrains/glimpse/internal/comments"
-	gexec "github.com/dotbrains/glimpse/internal/exec"
+	"github.com/smeltery/glimpse/internal/comments"
+	gexec "github.com/smeltery/glimpse/internal/exec"
 )
 
 var prURLPattern = regexp.MustCompile(`^https?://github\.com/([^/]+)/([^/]+)/pull/(\d+)`)

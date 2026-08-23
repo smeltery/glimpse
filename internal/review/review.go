@@ -7,8 +7,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/dotbrains/glimpse/internal/comments"
-	gexec "github.com/dotbrains/glimpse/internal/exec"
+	"github.com/smeltery/glimpse/internal/comments"
+	gexec "github.com/smeltery/glimpse/internal/exec"
 )
 
 var commentPattern = regexp.MustCompile(`^([^:]+):(\d+)\s+\[(must-fix|suggestion|nit|question)\]\s+(.+)$`)

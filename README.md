@@ -2,14 +2,14 @@
 
 ![glimpse](./assets/og-image.svg)
 
-[![CI](https://github.com/dotbrains/glimpse/actions/workflows/ci.yml/badge.svg)](https://github.com/dotbrains/glimpse/actions/workflows/ci.yml)
-[![Release](https://github.com/dotbrains/glimpse/actions/workflows/release.yml/badge.svg)](https://github.com/dotbrains/glimpse/actions/workflows/release.yml)
+[![CI](https://github.com/smeltery/glimpse/actions/workflows/ci.yml/badge.svg)](https://github.com/smeltery/glimpse/actions/workflows/ci.yml)
+[![Release](https://github.com/smeltery/glimpse/actions/workflows/release.yml/badge.svg)](https://github.com/smeltery/glimpse/actions/workflows/release.yml)
 [![License: PolyForm Shield 1.0.0](https://img.shields.io/badge/License-PolyForm%20Shield%201.0.0-blue.svg)](https://polyformproject.org/licenses/shield/1.0.0/)
 
 Glimpse is an agent-agnostic, GitHub-style diff viewer and code review tool.
 
 ```bash
-go install github.com/dotbrains/glimpse@latest
+go install github.com/smeltery/glimpse@latest
 ```
 
 It works with Claude Code, Cursor, Codex, and any AI coding agent.
@@ -180,4 +180,4 @@ glimpse list --json        # machine-readable output
 
 ## License
 
-PolyForm Shield 1.0.0 © dotbrains
+PolyForm Shield 1.0.0 © smeltery

@@ -7,7 +7,7 @@ import (
 func TestIsPRURL_Valid(t *testing.T) {
 	urls := []string{
 		"https://github.com/owner/repo/pull/123",
-		"https://github.com/dotbrains/glimpse/pull/1",
+		"https://github.com/smeltery/glimpse/pull/1",
 		"http://github.com/org/project/pull/99999",
 		"https://github.com/a/b/pull/1",
 	}
@@ -36,12 +36,12 @@ func TestIsPRURL_Invalid(t *testing.T) {
 }
 
 func TestParsePRURL_Valid(t *testing.T) {
-	owner, repo, number, err := ParsePRURL("https://github.com/dotbrains/glimpse/pull/42")
+	owner, repo, number, err := ParsePRURL("https://github.com/smeltery/glimpse/pull/42")
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
 	}
-	if owner != "dotbrains" {
-		t.Errorf("owner = %q, want dotbrains", owner)
+	if owner != "smeltery" {
+		t.Errorf("owner = %q, want smeltery", owner)
 	}
 	if repo != "glimpse" {
 		t.Errorf("repo = %q, want glimpse", repo)

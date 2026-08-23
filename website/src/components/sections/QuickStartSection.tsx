@@ -6,13 +6,13 @@ import { CodeBlock } from '@/components/CodeBlock';
 export function QuickStartSection() {
   const [installMethod, setInstallMethod] = useState<'go' | 'brew' | 'release'>('go');
 
-  const goExample = `go install github.com/dotbrains/glimpse@latest`;
+  const goExample = `go install github.com/smeltery/glimpse@latest`;
 
-  const brewExample = `brew tap dotbrains/tap
+  const brewExample = `brew tap smeltery/tap
 brew install --cask glimpse`;
 
   const releaseExample = `# macOS Apple Silicon
-gh release download --repo dotbrains/glimpse \\
+gh release download --repo smeltery/glimpse \\
   --pattern 'glimpse_darwin_arm64.tar.gz' --dir /tmp
 tar -xzf /tmp/glimpse_darwin_arm64.tar.gz -C /usr/local/bin`;
 

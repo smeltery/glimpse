@@ -9,10 +9,10 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/dotbrains/glimpse/internal/comments"
-	"github.com/dotbrains/glimpse/internal/git"
-	"github.com/dotbrains/glimpse/internal/instance"
-	"github.com/dotbrains/glimpse/internal/server"
+	"github.com/smeltery/glimpse/internal/comments"
+	"github.com/smeltery/glimpse/internal/git"
+	"github.com/smeltery/glimpse/internal/instance"
+	"github.com/smeltery/glimpse/internal/server"
 	"github.com/spf13/cobra"
 )
 

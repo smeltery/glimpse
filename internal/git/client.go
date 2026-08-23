@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	gexec "github.com/dotbrains/glimpse/internal/exec"
+	gexec "github.com/smeltery/glimpse/internal/exec"
 )
 
 // Client wraps git operations.

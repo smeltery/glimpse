@@ -6,11 +6,11 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/dotbrains/glimpse/internal/comments"
-	"github.com/dotbrains/glimpse/internal/diff"
-	"github.com/dotbrains/glimpse/internal/git"
-	"github.com/dotbrains/glimpse/internal/instance"
-	"github.com/dotbrains/glimpse/internal/review"
+	"github.com/smeltery/glimpse/internal/comments"
+	"github.com/smeltery/glimpse/internal/diff"
+	"github.com/smeltery/glimpse/internal/git"
+	"github.com/smeltery/glimpse/internal/instance"
+	"github.com/smeltery/glimpse/internal/review"
 	"github.com/spf13/cobra"
 )
 

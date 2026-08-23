@@ -9,11 +9,11 @@ builds:
 
 homebrew_casks:
   - repository:
-      owner: dotbrains
+      owner: smeltery
       name: homebrew-tap
       token: "{{ .Env.HOMEBREW_TAP_TOKEN }}"
     name: glimpse
-    homepage: https://github.com/dotbrains/glimpse
+    homepage: https://github.com/smeltery/glimpse
     description: "GitHub-style git diff viewer CLI"
     license: "PolyForm Shield 1.0.0"
     binaries: [glimpse]
