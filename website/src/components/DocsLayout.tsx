@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { Github, ArrowUp } from "lucide-react";
+import { Github } from "lucide-react";
 import { Brand, repository } from "./Brand";
 import { SiteDialogs } from "./SiteDialogs";
-import { CopyButton } from "./CopyButton";
+import { DocActions } from "./DocActions";
 import { DocEnhancements } from "./DocEnhancements";
 import { pages, docHref } from "@/lib/catalog";
 import { readDoc } from "@/lib/docs";
@@ -40,9 +40,6 @@ export function DocsLayout({
   const index = pages.findIndex((page) => page.slug === doc.slug);
   const next = pages[index + 1];
   const previous = pages[index - 1];
-  const prompt = encodeURIComponent(
-    `Help me use Glimpse. Reference: ${repository}/blob/main/docs/${doc.file}`,
-  );
   return (
     <div className="docs-shell">
       <header className="docs-header">
@@ -95,6 +92,13 @@ export function DocsLayout({
             dangerouslySetInnerHTML={{ __html: doc.html }}
           />
           <DocEnhancements key={doc.slug} />
+          <div className="mobile-doc-actions">
+            <DocActions
+              key={doc.slug}
+              markdown={doc.markdown}
+              file={doc.file}
+            />
+          </div>
           <nav className="doc-pagination" aria-label="Pagination">
             {previous && (
               <Link prefetch={false} href={docHref(previous.slug)}>
@@ -118,38 +122,7 @@ export function DocsLayout({
             {heading.text}
           </Link>
         ))}
-        <div className="doc-actions">
-          <Link
-            prefetch={false}
-            href={`${repository}/edit/main/docs/${doc.file}`}
-          >
-            <Github size={18} />
-            Edit on GitHub
-          </Link>
-          <Link prefetch={false} href="#top">
-            <ArrowUp size={18} />
-            Scroll to top
-          </Link>
-          <CopyButton text={doc.markdown} label="Copy as Markdown" />
-          <details>
-            <summary>Open in chat</summary>
-            <Link
-              prefetch={false}
-              href={`https://chatgpt.com/?prompt=${prompt}`}
-            >
-              ChatGPT
-            </Link>
-            <Link prefetch={false} href={`https://claude.ai/new?q=${prompt}`}>
-              Claude
-            </Link>
-            <Link
-              prefetch={false}
-              href={`https://cursor.com/link/prompt?text=${prompt}`}
-            >
-              Cursor
-            </Link>
-          </details>
-        </div>
+        <DocActions key={doc.slug} markdown={doc.markdown} file={doc.file} />
       </aside>
     </div>
   );

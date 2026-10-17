@@ -129,3 +129,39 @@ test("all docs routes and internal links resolve", async ({
     }
   }
 });
+
+test("docs action panel matches provider navigation and handles denied clipboard", async ({
+  page,
+  isMobile,
+}) => {
+  await page.goto("/docs/api/");
+  const actions = page.locator(
+    isMobile ? ".mobile-doc-actions .doc-actions" : ".docs-toc .doc-actions",
+  );
+  await actions.locator("summary").click();
+  const providers = actions.locator(".chat-providers a");
+  await expect(providers).toHaveCount(6);
+  for (const provider of await providers.all()) {
+    await expect(provider.locator("img")).toBeVisible();
+    await expect(provider).toHaveAttribute("target", "_blank");
+    const href = decodeURIComponent(
+      (await provider.getAttribute("href")) || "",
+    );
+    expect(href).toContain("Help me use Glimpse based on this documentation:");
+    expect(href).toContain("# Glimpse API");
+  }
+  const audit = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa"])
+    .analyze();
+  expect(audit.violations).toEqual([]);
+  await page.evaluate(() =>
+    Object.defineProperty(navigator, "clipboard", {
+      value: { writeText: () => Promise.reject(new Error("denied")) },
+      configurable: true,
+    }),
+  );
+  await actions.getByRole("button", { name: "Copy as Markdown" }).click();
+  await expect(
+    actions.getByRole("textbox", { name: "Page Markdown" }),
+  ).toHaveValue(/# Glimpse API/);
+});

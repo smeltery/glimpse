@@ -242,31 +242,6 @@
   font-size: 12px;
   padding-block: 8px;
 }
-.doc-actions {
-  border-top: 1px solid var(--line);
-  margin-top: 28px;
-  padding-top: 16px;
-}
-.doc-actions > a,
-.doc-actions summary,
-.doc-actions details a {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 12px;
-  color: var(--muted);
-  padding-block: 12px;
-}
-.doc-actions .copy-control {
-  flex-wrap: wrap;
-}
-.doc-actions .copy-control button {
-  border: 0;
-  padding: 12px 0;
-  color: var(--muted);
-  font-size: 12px;
-  gap: 10px;
-}
 .doc-pagination {
   display: flex;
   justify-content: space-between;
