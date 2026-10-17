@@ -19,7 +19,7 @@ export default function BrandPage() {
         <div className="brand-assets">
           <Image
             src="/logo.svg"
-            alt="Glimpse eye and diff mark"
+            alt="Glimpse geometric G monogram"
             width={96}
             height={96}
           />
