@@ -1,7 +1,5 @@
 # Glimpse
 
-<p align="center"><img src="website/public/logo.svg" width="64" alt="Glimpse logo"></p>
-
 ![Glimpse — Small changes. Better perspective.](website/public/og-image.png)
 
 [![CI](https://github.com/smeltery/glimpse/actions/workflows/ci.yml/badge.svg)](https://github.com/smeltery/glimpse/actions/workflows/ci.yml)
