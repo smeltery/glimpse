@@ -4,7 +4,7 @@ Runs an AI code review on the current diff and posts severity-tagged inline comm
 
 ## Usage
 
-```
+```text
 /glimpse-review                             # review working tree changes
 /glimpse-review main                        # review what you're merging into main
 /glimpse-review main..feature               # review branch diff

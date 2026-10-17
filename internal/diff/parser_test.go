@@ -128,15 +128,15 @@ func TestSummary(t *testing.T) {
 
 func TestGuessLanguage(t *testing.T) {
 	tests := map[string]string{
-		"main.go":       "go",
-		"app.tsx":       "tsx",
-		"style.css":     "css",
-		"Makefile":      "makefile",
-		"Dockerfile":    "dockerfile",
-		"config.yaml":   "yaml",
-		"unknown.xyz":   "",
-		"src/lib/a.rs":  "rust",
-		"scripts/x.sh":  "bash",
+		"main.go":      "go",
+		"app.tsx":      "tsx",
+		"style.css":    "css",
+		"Makefile":     "makefile",
+		"Dockerfile":   "dockerfile",
+		"config.yaml":  "yaml",
+		"unknown.xyz":  "",
+		"src/lib/a.rs": "rust",
+		"scripts/x.sh": "bash",
 	}
 	for name, want := range tests {
 		got := guessLanguage(name)

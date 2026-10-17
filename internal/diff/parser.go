@@ -10,7 +10,7 @@ import (
 type LineType string
 
 const (
-	LineContext  LineType = "context"
+	LineContext LineType = "context"
 	LineAdded   LineType = "added"
 	LineRemoved LineType = "removed"
 )

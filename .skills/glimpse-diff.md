@@ -4,7 +4,7 @@ Opens the glimpse diff viewer in the user's browser. Accepts the same refs as th
 
 ## Usage
 
-```
+```text
 /glimpse-diff                          # working tree changes
 /glimpse-diff main                     # current branch against main
 /glimpse-diff main..feature            # branch diff

@@ -4,7 +4,7 @@ Reads all open comments from the glimpse tree browser and makes the requested co
 
 ## Usage
 
-```
+```text
 /glimpse-resolve-tree                  # resolve all open comments
 /glimpse-resolve-tree abc123           # resolve a specific comment by ID
 ```
@@ -18,7 +18,8 @@ glimpse resolve-tree
 ```
 
 This outputs comments in the same format as `/glimpse-resolve`:
-```
+
+```text
 file:line [severity] comment text (id: abc123)
 ```
 

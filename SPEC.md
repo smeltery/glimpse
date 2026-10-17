@@ -38,7 +38,7 @@ Browser-based, GitHub-style diff viewer for git changes. View uncommitted change
 
 Scaffolds a config file with the built-in defaults:
 
-```
+```text
 $ glimpse config init
 ✓ Wrote default config to ~/.config/glimpse/config.yaml
 Edit the file to customize settings.
@@ -53,18 +53,19 @@ Refuses to overwrite an existing file unless `--force` is passed.
 <!-- Describe the main command behavior here. -->
 
 Steps:
+
 1. Step one.
 2. Step two.
 3. Step three.
 
-```
+```text
 $ glimpse
 → output example here
 ```
 
 ## Architecture
 
-```
+```text
 main.go                           Entry point, version injection via ldflags
 cmd/
   root.go                         Cobra root command + subcommand registration
@@ -115,6 +116,7 @@ git push origin v0.1.0
 ```
 
 This triggers the release workflow which:
+
 1. Runs tests and lint.
 2. Builds via GoReleaser for darwin/linux × amd64/arm64.
 3. Publishes a GitHub release with binaries.

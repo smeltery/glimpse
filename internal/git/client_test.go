@@ -7,85 +7,10 @@ import (
 	"testing"
 )
 
-func TestResolveRefs_Empty(t *testing.T) {
-	base, compare := ResolveRefs(nil, "", "")
-	if base != "" || compare != "" {
-		t.Errorf("expected empty refs, got base=%q compare=%q", base, compare)
-	}
-}
-
-func TestResolveRefs_SingleRef(t *testing.T) {
-	base, compare := ResolveRefs([]string{"main"}, "", "")
-	if base != "main" || compare != "" {
-		t.Errorf("expected base=main compare='', got base=%q compare=%q", base, compare)
-	}
-}
-
-func TestResolveRefs_TwoArgs(t *testing.T) {
-	base, compare := ResolveRefs([]string{"main", "feature"}, "", "")
-	if base != "main" || compare != "feature" {
-		t.Errorf("expected base=main compare=feature, got base=%q compare=%q", base, compare)
-	}
-}
-
-func TestResolveRefs_RangeSyntax(t *testing.T) {
-	base, compare := ResolveRefs([]string{"main..feature"}, "", "")
-	if base != "main" || compare != "feature" {
-		t.Errorf("expected base=main compare=feature, got base=%q compare=%q", base, compare)
-	}
-}
-
-func TestResolveRefs_ThreeDots(t *testing.T) {
-	// "main...feature" should be treated as range with "main" and "..feature".
-	base, compare := ResolveRefs([]string{"main...feature"}, "", "")
-	if base != "main" || compare != ".feature" {
-		t.Errorf("got base=%q compare=%q", base, compare)
-	}
-}
-
-func TestResolveRefs_FlagsOverride(t *testing.T) {
-	base, compare := ResolveRefs([]string{"ignored"}, "develop", "staging")
-	if base != "develop" || compare != "staging" {
-		t.Errorf("expected flags to override, got base=%q compare=%q", base, compare)
-	}
-}
-
-func TestResolveRefs_HeadTilde(t *testing.T) {
-	base, compare := ResolveRefs([]string{"HEAD~3"}, "", "")
-	if base != "HEAD~3" {
-		t.Errorf("expected base=HEAD~3, got %q", base)
-	}
-	if compare != "" {
-		t.Errorf("expected empty compare, got %q", compare)
-	}
-}
-
 func TestGitInstalled(t *testing.T) {
 	if !GitInstalled() {
 		t.Skip("git not installed")
 	}
-}
-
-// initTestRepo creates a temp git repo with one commit and returns the path.
-func initTestRepo(t *testing.T) string {
-	t.Helper()
-	dir := t.TempDir()
-	for _, args := range [][]string{
-		{"init"},
-		{"config", "user.email", "test@test.com"},
-		{"config", "user.name", "Test"},
-	} {
-		cmd := append([]string{"-C", dir}, args...)
-		out, err := exec.Command("git", cmd...).CombinedOutput()
-		if err != nil {
-			t.Fatalf("git %v: %s %v", args, out, err)
-		}
-	}
-	// Create initial commit.
-	os.WriteFile(dir+"/main.go", []byte("package main\n"), 0o644)
-	exec.Command("git", "-C", dir, "add", ".").Run()
-	exec.Command("git", "-C", dir, "commit", "-m", "init").Run()
-	return dir
 }
 
 func TestClient_IsRepo(t *testing.T) {

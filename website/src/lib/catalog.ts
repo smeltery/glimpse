@@ -1,0 +1,66 @@
+export const pages = [
+  {
+    slug: "",
+    file: "index.md",
+    title: "Getting started",
+    description: "Install Glimpse and open your first review.",
+    group: "Start here",
+  },
+  {
+    slug: "cli",
+    file: "cli.md",
+    title: "CLI reference",
+    description: "Commands, comparison refs, and viewer flags.",
+    group: "Guides",
+  },
+  {
+    slug: "workflows",
+    file: "workflows.md",
+    title: "Review workflows",
+    description: "Agents, inline comments, project trees, and GitHub PRs.",
+    group: "Guides",
+  },
+  {
+    slug: "api",
+    file: "api/index.md",
+    title: "API overview",
+    description: "Connect scripts and agents to the local viewer.",
+    group: "API reference",
+  },
+  {
+    slug: "api/diff",
+    file: "api/diff.md",
+    title: "Read a diff",
+    description: "Read captured changes from GET /api/diff.",
+    group: "API reference",
+  },
+  {
+    slug: "api/comments",
+    file: "api/comments.md",
+    title: "Review comments",
+    description: "List, create, resolve, and delete feedback.",
+    group: "API reference",
+  },
+  {
+    slug: "api/tree",
+    file: "api/tree.md",
+    title: "Tree and files",
+    description: "List project files and read their content.",
+    group: "API reference",
+  },
+  {
+    slug: "api/github",
+    file: "api/github.md",
+    title: "GitHub review sync",
+    description: "Import and publish PR comments.",
+    group: "API reference",
+  },
+  {
+    slug: "development",
+    file: "development.md",
+    title: "Development",
+    description: "Flox, Bun, validation, hooks, and automatic releases.",
+    group: "Contributing",
+  },
+];
+export const docHref = (slug: string) => `/docs/${slug ? `${slug}/` : ""}`;
