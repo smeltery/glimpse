@@ -18,8 +18,8 @@ import (
 	"github.com/smeltery/glimpse/internal/git"
 	"github.com/smeltery/glimpse/internal/instance"
 	"github.com/smeltery/glimpse/internal/server"
-	"strconv"
 	"github.com/spf13/cobra"
+	"strconv"
 )
 
 var (

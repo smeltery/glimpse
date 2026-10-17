@@ -4,7 +4,7 @@ Opens a full file tree browser for the current repo — no diff required. Browse
 
 ## Usage
 
-```
+```text
 /glimpse-tree
 ```
 

@@ -27,10 +27,10 @@ type Comment struct {
 	ID        string    `json:"id"`
 	File      string    `json:"file"`
 	Line      int       `json:"line"`
-	Side      string    `json:"side"`      // "old" or "new"
+	Side      string    `json:"side"` // "old" or "new"
 	Body      string    `json:"body"`
-	Severity  string    `json:"severity"`  // must-fix, suggestion, nit, question
-	Author    string    `json:"author"`    // "user" or "ai"
+	Severity  string    `json:"severity"` // must-fix, suggestion, nit, question
+	Author    string    `json:"author"`   // "user" or "ai"
 	Resolved  bool      `json:"resolved"`
 	CreatedAt time.Time `json:"createdAt"`
 }

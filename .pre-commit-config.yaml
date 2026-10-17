@@ -1,0 +1,17 @@
+repos:
+  - repo: local
+    hooks:
+      - id: repository-checks
+        name: Markdown, Mermaid, LOC, formatting, website and workflow lint
+        entry: flox activate -- make check
+        language: system
+        pass_filenames: false
+        always_run: true
+        stages: [pre-commit]
+      - id: full-ci
+        name: Full CI including Go and production browser checks
+        entry: flox activate -- make ci
+        language: system
+        pass_filenames: false
+        always_run: true
+        stages: [pre-push]

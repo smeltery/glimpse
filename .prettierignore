@@ -1,0 +1,8 @@
+node_modules
+website/.next
+website/out
+.website-studio
+.flox
+bun.lock
+playwright-report
+test-results

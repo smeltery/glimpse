@@ -1,32 +1,195 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-
-  html,
-  body {
-    @apply bg-[#1a1d29] text-[#fefdfb];
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    overflow-x: hidden;
-  }
-
-  ::selection {
-    @apply bg-accent-primary text-white;
-  }
-
-  ::-moz-selection {
-    @apply bg-accent-primary text-white;
+@import "./doc-actions.css";
+@import "./navigation.css";
+@import "./marketing.css";
+@import "./docs.css";
+:root {
+  --paper: #f4f7fc;
+  --white: #fff;
+  --ink: #17263c;
+  --muted: #5c6c82;
+  --line: #dce4ef;
+  --sage: #e9effa;
+  --accent: #3456a3;
+  --serif: Georgia, "Times New Roman", serif;
+  --sans: "DM Sans Variable", -apple-system, sans-serif;
+  --mono: "IBM Plex Mono", monospace;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: var(--sans);
+  color-scheme: light;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 110px;
+}
+body {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.65;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+}
+button,
+summary {
+  cursor: pointer;
+}
+button {
+  border: 0;
+  background: transparent;
+}
+a:hover {
+  color: var(--accent);
+}
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+::selection {
+  background: #d6e3ff;
+}
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+h1,
+h2 {
+  font-weight: 550;
+  letter-spacing: -0.05em;
+  line-height: 1.1;
+}
+h1 {
+  font-size: clamp(44px, 5.2vw, 76px);
+}
+h2 {
+  font-size: clamp(32px, 3.5vw, 48px);
+}
+h3 {
+  font-size: 21px;
+  line-height: 1.3;
+  letter-spacing: -0.025em;
+}
+em {
+  font-family: var(--serif);
+  font-weight: 400;
+  color: var(--accent);
+}
+pre,
+code,
+kbd {
+  font-family: var(--mono);
+}
+pre {
+  overflow-x: auto;
+}
+.wrap {
+  width: min(1320px, calc(100% - 64px));
+  margin-inline: auto;
+}
+.eyebrow {
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.status-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #5279c7;
+  flex-shrink: 0;
+}
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 14px 24px;
+  min-height: 48px;
+  border-radius: 99px;
+  color: white;
+  background: var(--ink);
+  font-size: 13px;
+}
+.button:hover {
+  color: white;
+  background: var(--accent);
+}
+.text-link {
+  font-size: 13px;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-color: #a9badb;
+}
+.muted {
+  color: var(--muted);
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+.skip {
+  position: fixed;
+  top: -100px;
+  left: 12px;
+  z-index: 100;
+  background: white;
+  padding: 12px;
+}
+.skip:focus {
+  top: 12px;
+}
+.copy-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+}
+.copy-control button {
+  display: inline-flex;
+  gap: 7px;
+  align-items: center;
+  border: 1px solid var(--line);
+  padding: 8px 10px;
+  border-radius: 6px;
+}
+.copy-control [role="status"] {
+  color: var(--accent);
+}
+@media (max-width: 780px) {
+  .wrap {
+    width: calc(100% - 32px);
   }
 }
-
-@layer utilities {
-  .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent-primary via-accent-secondary to-accent-tertiary;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
   }
 }

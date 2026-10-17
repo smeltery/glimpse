@@ -1,47 +1,32 @@
-import type { Metadata } from 'next';
-import '@/styles/globals.css';
+import Link from "next/link";
+import type { Metadata } from "next";
+import "@fontsource-variable/dm-sans";
+import "@fontsource/ibm-plex-mono/latin-400.css";
+import "@/styles/globals.css";
 
+const socialImage =
+  "https://raw.githubusercontent.com/smeltery/glimpse/main/website/public/og-image.png";
 export const metadata: Metadata = {
-  title: 'glimpse — GitHub-style git diff viewer CLI',
-  description: 'Browser-based, GitHub-style diff viewer for git changes. View uncommitted changes, branch comparisons, commit ranges, and more with syntax-highlighted split diffs.',
+  title: "Glimpse — Small changes. Better perspective.",
+  description:
+    "Review Git diffs in your browser, leave inline feedback, and keep your coding agent in the loop. One Go binary for a clearer local code review.",
   openGraph: {
-    title: 'glimpse — GitHub-style git diff viewer CLI',
-    description: 'Browser-based, GitHub-style diff viewer for git changes. View uncommitted changes, branch comparisons, commit ranges, and more with syntax-highlighted split diffs.',
-    url: 'https://glimpse.smeltery.io',
-    siteName: 'glimpse',
+    title: "Glimpse — Small changes. Better perspective.",
+    description: "Your code changed. See the whole story.",
+    siteName: "Glimpse",
     images: [
       {
-        url: '/og-image.svg',
+        url: socialImage,
         width: 1200,
         height: 630,
-        alt: 'glimpse — GitHub-style git diff viewer CLI',
+        alt: "Glimpse local diff viewer with inline review feedback",
       },
     ],
-    locale: 'en_US',
-    type: 'website',
+    type: "website",
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'glimpse — GitHub-style git diff viewer CLI',
-    description: 'Browser-based, GitHub-style diff viewer for git changes. View uncommitted changes, branch comparisons, commit ranges, and more with syntax-highlighted split diffs.',
-    images: ['/og-image.svg'],
-  },
-  icons: {
-    icon: [
-      {
-        url: '/favicon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: [
-      {
-        url: '/favicon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-  },
+  twitter: { card: "summary_large_image", images: [socialImage] },
+  icons: { icon: "/logo.svg" },
 };
-
 export default function RootLayout({
   children,
 }: {
@@ -49,11 +34,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </head>
-      <body>{children}</body>
+      <body id="top">
+        <Link prefetch={false} className="skip" href="#main">
+          Skip to content
+        </Link>
+        {children}
+      </body>
     </html>
   );
 }

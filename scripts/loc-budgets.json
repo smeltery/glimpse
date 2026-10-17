@@ -1,0 +1,15 @@
+{
+  "default_lines": 300,
+  "css_lines": 500,
+  "directory_files": 25,
+  "files": {
+    "cmd/root.go": {
+      "limit": 343,
+      "reason": "Existing CLI setup and lifecycle; freeze growth outside this website/tooling change."
+    },
+    "internal/diff/parser.go": {
+      "limit": 307,
+      "reason": "Existing cohesive diff parser; freeze at current size."
+    }
+  }
+}

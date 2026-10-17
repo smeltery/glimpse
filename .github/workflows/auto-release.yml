@@ -1,0 +1,61 @@
+name: auto-release
+
+on:
+  workflow_run:
+    workflows: [ci]
+    branches: [main]
+    types: [completed]
+
+concurrency:
+  group: auto-release-main
+  cancel-in-progress: false
+
+permissions:
+  actions: write
+  contents: write
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+jobs:
+  cut-release:
+    if: github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.workflow_run.head_sha }}
+      - name: Tag the tested main revision
+        id: version
+        env:
+          TESTED_SHA: ${{ github.event.workflow_run.head_sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main --tags
+          if [ "$(git rev-parse origin/main)" != "$TESTED_SHA" ]; then
+            echo 'A newer main revision is waiting for CI; skipping stale run.'
+            exit 0
+          fi
+          existing=$(git tag --points-at "$TESTED_SHA" | grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' | sort -V | tail -1 || true)
+          if [ -n "$existing" ]; then
+            echo "tag=$existing" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          latest=$(git tag --list | grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' | sort -V | tail -1 || true)
+          next=v0.1.0
+          if [ -n "$latest" ]; then
+            IFS=. read -r major minor patch <<< "${latest#v}"
+            next="v${major}.${minor}.$((10#$patch + 1))"
+          fi
+          git tag "$next" "$TESTED_SHA"
+          git push origin "$next"
+          echo "tag=$next" >> "$GITHUB_OUTPUT"
+      - name: Dispatch release build
+        if: steps.version.outputs.tag != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ steps.version.outputs.tag }}
+        run: gh workflow run release.yml --ref main -f tag="$RELEASE_TAG"
