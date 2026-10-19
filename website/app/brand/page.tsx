@@ -24,7 +24,15 @@ export default function BrandPage() {
             height={96}
           />
           <Link prefetch={false} className="button" href="/logo.svg" download>
-            Download SVG logo
+            Download logo for light backgrounds
+          </Link>
+          <Link
+            prefetch={false}
+            className="button"
+            href="/logo-dark.svg"
+            download
+          >
+            Download logo for dark backgrounds
           </Link>
           <Link
             prefetch={false}

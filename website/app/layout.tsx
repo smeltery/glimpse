@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: { card: "summary_large_image", images: [socialImage] },
-  icons: { icon: "/logo.svg" },
+  icons: { icon: { url: "/favicon.svg", type: "image/svg+xml" } },
 };
 export default function RootLayout({
   children,
